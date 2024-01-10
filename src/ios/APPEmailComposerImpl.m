@@ -65,6 +65,10 @@
 
     dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
 
+    if ([scheme containsString:@"mailto:"]) {
+        canOpen = [self canSendMail];
+    }
+    
     return canOpen;
 }
 
